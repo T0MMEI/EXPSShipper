@@ -5,23 +5,67 @@ import java.util.Scanner;
 
 public class Package {
 
-	private String pakCommodity;
-	private int packQnty;
-	private double weight;
-	private double lenght;
-	private double width;
-	private double height;
-	double volume;
-	double packTotalWeight;
+	String commodity;
+	int packQnty;
+	
+	double weight;
+	double lenght;
+	double width;
+	double height;
 
-	private double packageVolume() {
-		volume = packQnty * (lenght * width * height) / 1000000;
-		return volume;
+	
+	public String getCommodity() {
+		return commodity;
 	}
 
-	private double packageWeight() {
-		packTotalWeight = packQnty * weight;
-		return packTotalWeight;
+	public int getPackQnty() {
+		return packQnty;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public double getLenght() {
+		return lenght;
+	}
+
+	public double getWidth() {
+		return width;
+	}
+
+	public double getHeight() {
+		return height;
+	}
+
+	public void setCommodity(String commodity) {
+		this.commodity = commodity;
+	}
+
+	public void setPackQnty(int packQnty) {
+		this.packQnty = packQnty;
+	}
+
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+	public void setLenght(double lenght) {
+		this.lenght = lenght;
+	}
+
+	public void setWidth(double width) {
+		this.width = width;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+	
+
+	private double packageVolume(Double volume) {
+		volume = packQnty * (lenght * width * height) / 1000000;
+		return volume;
 	}
 
 	private static void print(String text) {
@@ -29,13 +73,14 @@ public class Package {
 	}
 
 	public void printpackdetails() {
-		print("Package details: " + "\n" + "Number of boxes: " + packQnty + "\n" + "Weight: " + packTotalWeight + "KG"
-				+ "\n" + "Dimensions: " + lenght + " x " + width + " x " + height + "CM" + "\n" + "Volume: " + volume
-				+ "CBM");
+		print("Package details: " + "\n" 
+				+ "Number of boxes: " + packQnty + "\n" 
+				+ "Weight: " + weight + "KG" + "\n"
+				+ "Dimensions: " + lenght + " x " + width + " x " + height + "cm" + "\n"
+				+ "Volume: " + packageVolume(null) + "CBM");
 	}
-	// GATHER OBJECTS!
 
-	public static void getPackageData() {
+	public void getPackageData() {
 		ArrayList<Package> shipment = new ArrayList<>();
 
 		Scanner input = new Scanner(System.in);
@@ -44,25 +89,22 @@ public class Package {
 		print("Please add package details");
 
 		while (a.equalsIgnoreCase("Yes")) {
-			
-			
 
 			Package pak = new Package();
-
+			
 			print("Please enter commodity: ");
-			pak.pakCommodity = input.next();
+			pak.setCommodity(input.nextLine()); // SKIPPED ON 2ND ENTRY
 			print("Please enter number of boxes: ");
-			pak.packQnty = input.nextInt();
+			pak.setPackQnty(input.nextInt());
 			print("Please enter weight: ");
-			pak.weight = input.nextDouble();
+			pak.setWeight(input.nextDouble());
 			print("Please enter lenght(cm): ");
-			pak.lenght = input.nextDouble();
+			pak.setLenght(input.nextDouble());
 			print("Please enter width(cm): ");
-			pak.width = input.nextDouble();
+			pak.setWidth(input.nextDouble());
 			print("Please enter height(cm): ");
-			pak.height = input.nextDouble();
-			pak.packageVolume();
-			pak.packageWeight();
+			pak.setHeight(input.nextDouble());
+			pak.packageVolume(null);
 			shipment.add(pak);
 
 			print("Add another package? (Yes/No)");
@@ -70,19 +112,11 @@ public class Package {
 
 		}
 		input.close();
-		
 
-		// PRINT OBJECTS data
+		// PRINT TO CHECK
 		for (int i = 0; i < shipment.size(); i++) {
 		shipment.get(i).printpackdetails();
 		}
-
 	}
 
-	
-	
-	
-	
-	
-	
 }

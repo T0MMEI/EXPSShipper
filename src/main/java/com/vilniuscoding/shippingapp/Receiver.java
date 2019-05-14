@@ -10,85 +10,71 @@ public class Receiver {
 	private String receiversCountry;
 	private String receiversEntity;
 	private String receiversPhoNum;
-	private String receiversEmail;
 
-	Scanner input = new Scanner(System.in);
-
-	private static void print(String text) {
-		System.out.println(text);
-	}
+	Scanner inputReceiver = new Scanner(System.in);
 
 	public String getReceiversName() {
 		return receiversName;
-	}
-
-	public void setReceiversName(String receiversName) {
-		print("Company name: ");
-		this.receiversName = input.next();
 	}
 
 	public String getReceiversAddress() {
 		return receiversAddress;
 	}
 
-	public void setReceiversAddress(String receiversAddress) {
-		print("Company address: ");
-		this.receiversAddress = input.next();
-	}
-
 	public String getReceiversCity() {
 		return receiversCity;
-	}
-
-	public void setReceiversCity(String receiversCity) {
-		print("City: ");
-		this.receiversCity = input.next();
 	}
 
 	public String getReceiversCountry() {
 		return receiversCountry;
 	}
 
-	public void setReceiversCountry(String receiversCountry) {
-		print("Country: ");
-		this.receiversCountry = input.next();
-	}
-
 	public String getReceiversEntity() {
 		return receiversEntity;
 	}
-
-	public void setReceiversEntity(String receiversEntity) {
-		print("Please enter receivers name & surname: ");
-		this.receiversEntity = input.next();
-	}
-
 	public String getReceiversPhoNum() {
 		return receiversPhoNum;
 	}
+	
+	public void setReceiversName(String receiversName) {
+		print("Please enter receivers company name:");
+		this.receiversName = inputReceiver.nextLine();
+	}
+	
+	public void setReceiversAddress(String receiversAddress) {
+		print("Please enter receivers address:");
+		this.receiversAddress = inputReceiver.nextLine();
+	}
 
+	public void setReceiversCity(String receiversCity) {
+		print("Please enter receivers city:");
+		this.receiversCity = inputReceiver.nextLine();
+	}
+	public void setReceiversCountry(String receiversCountry) {
+		print("Please enter receivers country:");
+		this.receiversCountry = inputReceiver.nextLine();
+	}
+	public void setReceiversEntity(String receiversEntity) {
+		print("Please enter receivers name & surname:");
+		this.receiversEntity = inputReceiver.nextLine();
+	}
 	public void setReceiversPhoNum(String receiversPhoNum) {
-		print("Please enter contact phone number: ");
-		this.receiversPhoNum = input.next();
+		print("Please enter receivers contact phone number:");
+		this.receiversPhoNum = inputReceiver.nextLine();
 	}
-
-	public String getReceiversEmail() {
-		return receiversEmail;
-	}
-
-	public void setReceiversEmail(String receiversEmail) {
-		print("Please enter contact email address: ");
-		this.receiversEmail = input.next();
-	}
-
+	// SCENNER IS OPEN!!!
 	public void displayReceiversInfo() {
-		print("COMPANY NAME: " + this.receiversName + "\n" + "ADDRESS: " + this.receiversAddress + "\n" + "CITY: "
-				+ this.receiversCity + "\n" + "COUNTRY: " + this.receiversCountry + "\n" + "NAME & SURNAME: "
-				+ this.receiversEntity + "\n" + "PHONE NUMER: " + this.receiversPhoNum + "\n" + "EMAIL: "
-				+ this.receiversEmail);
+		print(" *** RECEIVERS DETAILS: " + "\n"
+				+ "COMPANY NAME: " + this.receiversName + "\n" 
+				+ "ADDRESS: " + this.receiversAddress + "\n" 
+				+ "CITY: "+ this.receiversCity + "\n" 
+				+ "COUNTRY: " + this.receiversCountry + "\n" 
+				+ "NAME & SURNAME: " + this.receiversEntity + "\n" 
+				+ "PHONE NUMER: " + this.receiversPhoNum);
+		}
+
+	private static void print(String text) {
+		System.out.println(text);
 	}
 
-	public void readReceiversDataFromDB() {
-
-	}
 }

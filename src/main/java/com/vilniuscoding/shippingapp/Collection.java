@@ -10,82 +10,76 @@ public class Collection {
 	private String collectionCountry;
 	private String collectionEntity;
 	private String collectionPhoNum;
-	private String collectionEmail;
 
-	Scanner input = new Scanner(System.in);
-
-	private static void print(String text) {
-		System.out.println(text);
-	}
+	Scanner inputCollection = new Scanner(System.in);
 
 	public String getCollectionName() {
 		return collectionName;
-	}
-
-	public void setCollectionName(String collectionName) {
-		print("Company name: ");
-		this.collectionName = input.next();
 	}
 
 	public String getCollectionAddress() {
 		return collectionAddress;
 	}
 
-	public void setCollectionAddress(String collectionAddress) {
-		print("Loading address: ");
-		this.collectionAddress = input.next();
-	}
-
 	public String getCollectionCity() {
 		return collectionCity;
-	}
-
-	public void setCollectionCity(String collectionCity) {
-		print("City: ");
-		this.collectionCity = input.next();
 	}
 
 	public String getCollectionCountry() {
 		return collectionCountry;
 	}
 
-	public void setCollectionCountry(String collectionCountry) {
-		print("Country: ");
-		this.collectionCountry = input.next();
-	}
-
 	public String getCollectionEntity() {
 		return collectionEntity;
-	}
-
-	public void setCollectionEntity(String collectionEntity) {
-		print("Please enter rep. persons name & surname: ");
-		this.collectionEntity = input.next();
 	}
 
 	public String getCollectionPhoNum() {
 		return collectionPhoNum;
 	}
 
+	public void setCollectionName(String collectionName) {
+		print("Please enter loading warehouse name or company name:");
+		this.collectionName = inputCollection.nextLine();
+	}
+
+	public void setCollectionAddress(String collectionAddress) {
+		print("Please enter collection address:");
+		this.collectionAddress = inputCollection.nextLine();
+	}
+
+	public void setCollectionCity(String collectionCity) {
+		print("Please enter City name:");
+		this.collectionCity = inputCollection.nextLine();
+	}
+
+	public void setCollectionCountry(String collectionCountry) {
+		print("Please enter country: ");
+		this.collectionCountry = inputCollection.nextLine();
+	}
+
+	public void setCollectionEntity(String collectionEntity) {
+		print("Please enter rep. persons name & surname: ");
+		this.collectionEntity = inputCollection.nextLine();
+	}
+
 	public void setCollectionPhoNum(String collectionPhoNum) {
 		print("Please enter contact phone number: ");
-		this.collectionPhoNum = input.next();
+		this.collectionPhoNum = inputCollection.nextLine();
 	}
 
-	public String getCollectionEmail() {
-		return collectionEmail;
-	}
-
-	public void setCollectionEmail(String collectionEmail) {
-		print("Please enter contact email address: ");
-		this.collectionEmail = input.next();
-	}
-
+	/// SCANNER IS OPEN!!!
 	public void displayCollectionInfo() {
-		print("COMPANY NAME: " + this.collectionName + "\n" + "ADDRESS: " + this.collectionAddress + "\n" + "CITY: "
-				+ this.collectionCity + "\n" + "COUNTRY: " + this.collectionCountry + "\n" + "NAME & SURNAME: "
-				+ this.collectionEntity + "\n" + "PHONE NUMER: " + this.collectionPhoNum + "\n" + "EMAIL: "
-				+ this.collectionEmail);
+		print(" *** COLLECTION DETAILS: " + "\n"
+				+ "COMPANY NAME: " + this.collectionName + "\n" 
+				+ "ADDRESS: " + this.collectionAddress + "\n" 
+				+ "CITY: " + this.collectionCity + "\n"	
+				+ "COUNTRY: " + this.collectionCountry + "\n" 
+				+ "NAME & SURNAME: " + this.collectionEntity + "\n" 
+				+ "PHONE NUMER: " + this.collectionPhoNum);
+	}
+
+	private static void print(String text) {
+		System.out.println(text);
 	}
 
 }
