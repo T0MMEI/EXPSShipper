@@ -58,8 +58,8 @@ public class DBoperations extends Controller {
 		return conn;
 	}
 
-	public void insertToDatabase(String awbNo, Object docDate, String custRef, String receiversName, int packQnty,
-			Double packTotalWeight, String ReceiversCountry) {
+	public void insertToDatabase(String awbNo, Object docDate, String custRef, String receiversName, int totalUnits,
+			Double shipmentWeight, String receiversCountry) {
 		String sql = "INSERT INTO export (AWBno, DocumentDate, CustomerReference, ReceiversName, Packages, TotalWeight, ReceiversCountry) VALUES(?,?,?,?,?,?,?)";
 
 		try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -67,15 +67,16 @@ public class DBoperations extends Controller {
 			pstmt.setObject(2, docDate);
 			pstmt.setString(3, custRef);
 			pstmt.setString(4, receiversName);
-			pstmt.setInt(5, packQnty); // !!! - EMPTY ENTRY, CAN'T REACH ARGS
-			pstmt.setDouble(6, packTotalWeight); // !!! - EMPTY ENTRY, CAN'T REACH ARGS
-			pstmt.setString(7, ReceiversCountry);
+			pstmt.setInt(5, totalUnits); 
+			pstmt.setDouble(6, shipmentWeight);
+			pstmt.setString(7, receiversCountry);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
+	//nepanaudotas
 	public void selectAll() {
 		String sql = "SELECT AWBno, DocumentDate, CustomerReference, ReceiversName, Packages, TotalWeight, ReceiversCountry FROM export";
 
@@ -84,6 +85,7 @@ public class DBoperations extends Controller {
 				ResultSet rs = stmt.executeQuery(sql)) {
 
 			// loop through the result set
+			System.out.println("    AWBno    | DocumentDate | CustomerReference | ReceiversName | Packages | TotalWeight | ReceiversCountry");
 			while (rs.next()) {
 			System.out.println(rs.getString(1) + "\t" + rs.getObject(2) + "\t"
 			+ rs.getString(3) + "\t" + rs.getString(4) + "\t"

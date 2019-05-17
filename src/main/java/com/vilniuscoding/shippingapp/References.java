@@ -11,26 +11,29 @@ import java.util.Scanner;
 public class References {
 
 	private String custRef;
-	private String Service;
+	private String service;
+		
 	
 	public String getCustRef() {
+		System.out.println(custRef);
 		return custRef;
 	}
 
 	public String getService() {
-		return Service;
+		System.out.println(service);
+		return service;
 	}
 
-	public void setCustRef(String custRef) {
+	public void setCustRef() {
 		System.out.println("Please enter Your shipment reference");
 		Scanner refInput = new Scanner(System.in);
 		this.custRef = refInput.nextLine();
 	}
 
-	public void setService(String service) {
-		System.out.println("Please enter your desired service: Express or Economy or Cheap-nogood-slow");
+	public void setService() {
+		System.out.println("Please enter direction: International or Domestic");
 		Scanner servInput = new Scanner(System.in);
-		this.Service = servInput.nextLine();
+		this.service = servInput.nextLine();
 	}
 
 	public String awbGenerator() {
@@ -44,43 +47,15 @@ public class References {
 	public String docDate() {
 		DateFormat currentDate = new SimpleDateFormat("yyyy-MM-dd");
 		String date = currentDate.format(new Date());
-		System.out.println(date);
 		return date;
 	}
 	
-	/*
-	public String custRef() {
-		System.out.println("Customer reference: ?");
-		Scanner inputRef = new Scanner(System.in);
-		String custRef = inputRef.nextLine();
-		return custRef;
-
-	}
-
-	public void service() {
-		Scanner inputService = new Scanner(System.in);
-		System.out.println("Please choose desired service - Express or Economy");
-		String serviceChoice = inputService.nextLine();
-
-		if (serviceChoice.equals("Express")) {
-			System.out.println("Express");
-		}
-		if (serviceChoice.equalsIgnoreCase("Economy")) {
-			System.out.println("Economy");
-		}
-	}
-	*/
-	
 	public void welcome() {
-
-		for (int i = 0; i < 2; i++) {
-			System.out.println("************************************************");
-		}
-		System.out.println("\n" + "             WELCOME TO EXPS SHIPPER" + "\n");
-		for (int i = 0; i < 2; i++) {
-			System.out.println("************************************************");
-		}
-
+		System.out.println(" >>> ---  WELCOME TO SHIPPER" + "\n" + "******************************************************************************************************************************************************************************************");
+		System.out.println("WARNING MESSAGE: Dear valuable customer please bear in mind that You are fully responsible for the quality of entered data quality" + "******************************************************************************************************************************************************************************************");
 	}
-
+	
+	public void menu() {
+		System.out.println("Menu: " + "1. Add shipment " + "2. View List " + "3. Generate Waybill");
+	}
 }

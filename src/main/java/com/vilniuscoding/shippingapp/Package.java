@@ -13,6 +13,7 @@ public class Package {
 	double width;
 	double height;
 
+	private static ArrayList<Package> shipment = new ArrayList<>();
 	
 	public String getCommodity() {
 		return commodity;
@@ -63,38 +64,38 @@ public class Package {
 	}
 	
 
-	private double packageVolume(Double volume) {
-		volume = packQnty * (lenght * width * height) / 1000000;
+	public double packageVolume() {
+		double volume = packQnty * (lenght * width * height) / 1000000;
 		return volume;
 	}
-
-	private static void print(String text) {
-		System.out.println(text);
+	
+	
+	public double shipmentWeight() {
+		double totalWeigth = 0;
+			for (int i = 0; i < shipment.size(); i++) {
+				totalWeigth = totalWeigth + shipment.get(i).weight;
+			}
+		return totalWeigth;	
 	}
-
-	public void printpackdetails() {
-		print("Package details: " + "\n" 
-				+ "Number of boxes: " + packQnty + "\n" 
-				+ "Weight: " + weight + "KG" + "\n"
-				+ "Dimensions: " + lenght + " x " + width + " x " + height + "cm" + "\n"
-				+ "Volume: " + packageVolume(null) + "CBM");
+	
+	public int shipmentPackages() {
+		int totalUnits =0;
+			for (int i = 0; i < shipment.size(); i++) {
+				totalUnits = totalUnits + shipment.get(i).packQnty;
+			}
+		return totalUnits;
 	}
 
 	public void getPackageData() {
-		ArrayList<Package> shipment = new ArrayList<>();
-
 		Scanner input = new Scanner(System.in);
-		String a = "Yes";
-
+		String addPackage = "Yes";
 		print("Please add package details");
 
-		while (a.equalsIgnoreCase("Yes")) {
-
+		while (addPackage.equalsIgnoreCase("Yes")) {
 			Package pak = new Package();
-			
 			print("Please enter commodity: ");
-			pak.setCommodity(input.nextLine()); // SKIPPED ON 2ND ENTRY
-			print("Please enter number of boxes: ");
+			pak.setCommodity(input.nextLine());
+			print("Please enter number of pieces: ");
 			pak.setPackQnty(input.nextInt());
 			print("Please enter weight: ");
 			pak.setWeight(input.nextDouble());
@@ -104,19 +105,30 @@ public class Package {
 			pak.setWidth(input.nextDouble());
 			print("Please enter height(cm): ");
 			pak.setHeight(input.nextDouble());
-			pak.packageVolume(null);
+			pak.packageVolume();
 			shipment.add(pak);
-
 			print("Add another package? (Yes/No)");
-			a = input.next();
-
-		}
-		input.close();
-
-		// PRINT TO CHECK
-		for (int i = 0; i < shipment.size(); i++) {
-		shipment.get(i).printpackdetails();
+			addPackage = input.next();
 		}
 	}
+	
+	private static void print(String text) {
+		System.out.println(text);
+	}
 
+	public void displayPacksData () {
+		for (int i = 0; i < shipment.size(); i++) {
+			shipment.get(i).printpackdetails();
+		}
+	}
+	
+	private void printpackdetails() {
+		print("Package details: " + "\n" 
+				+ "Number of boxes: " + packQnty + "\n" 
+				+ "Weight: " + weight + "KG" + "\n"
+				+ "Dimensions: " + lenght + " x " + width + " x " + height + "cm" + "\n"
+				+ "Volume: " + packageVolume() + "CBM");
+	}
+
+	
 }

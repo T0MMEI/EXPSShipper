@@ -37,37 +37,36 @@ public class Collection {
 		return collectionPhoNum;
 	}
 
-	public void setCollectionName(String collectionName) {
+	public void setCollectionName() {
 		print("Please enter loading warehouse name or company name:");
 		this.collectionName = inputCollection.nextLine();
 	}
 
-	public void setCollectionAddress(String collectionAddress) {
+	public void setCollectionAddress() {
 		print("Please enter collection address:");
 		this.collectionAddress = inputCollection.nextLine();
 	}
 
-	public void setCollectionCity(String collectionCity) {
+	public void setCollectionCity() {
 		print("Please enter City name:");
 		this.collectionCity = inputCollection.nextLine();
 	}
 
-	public void setCollectionCountry(String collectionCountry) {
+	public void setCollectionCountry() {
 		print("Please enter country: ");
 		this.collectionCountry = inputCollection.nextLine();
 	}
 
-	public void setCollectionEntity(String collectionEntity) {
+	public void setCollectionEntity() {
 		print("Please enter rep. persons name & surname: ");
 		this.collectionEntity = inputCollection.nextLine();
 	}
 
-	public void setCollectionPhoNum(String collectionPhoNum) {
+	public void setCollectionPhoNum() {
 		print("Please enter contact phone number: ");
 		this.collectionPhoNum = inputCollection.nextLine();
 	}
-
-	/// SCANNER IS OPEN!!!
+	
 	public void displayCollectionInfo() {
 		print(" *** COLLECTION DETAILS: " + "\n"
 				+ "COMPANY NAME: " + this.collectionName + "\n" 

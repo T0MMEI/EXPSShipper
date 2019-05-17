@@ -36,33 +36,33 @@ public class Receiver {
 		return receiversPhoNum;
 	}
 	
-	public void setReceiversName(String receiversName) {
+	public void setReceiversName() {
 		print("Please enter receivers company name:");
 		this.receiversName = inputReceiver.nextLine();
 	}
 	
-	public void setReceiversAddress(String receiversAddress) {
+	public void setReceiversAddress() {
 		print("Please enter receivers address:");
 		this.receiversAddress = inputReceiver.nextLine();
 	}
 
-	public void setReceiversCity(String receiversCity) {
+	public void setReceiversCity() {
 		print("Please enter receivers city:");
 		this.receiversCity = inputReceiver.nextLine();
 	}
-	public void setReceiversCountry(String receiversCountry) {
+	public void setReceiversCountry() {
 		print("Please enter receivers country:");
 		this.receiversCountry = inputReceiver.nextLine();
 	}
-	public void setReceiversEntity(String receiversEntity) {
+	public void setReceiversEntity() {
 		print("Please enter receivers name & surname:");
 		this.receiversEntity = inputReceiver.nextLine();
 	}
-	public void setReceiversPhoNum(String receiversPhoNum) {
+	public void setReceiversPhoNum() {
 		print("Please enter receivers contact phone number:");
 		this.receiversPhoNum = inputReceiver.nextLine();
 	}
-	// SCENNER IS OPEN!!!
+
 	public void displayReceiversInfo() {
 		print(" *** RECEIVERS DETAILS: " + "\n"
 				+ "COMPANY NAME: " + this.receiversName + "\n" 

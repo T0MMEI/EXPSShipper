@@ -37,36 +37,36 @@ public class Shipper {
 		return shippersPhoNum;
 	}
 
-	public void setShippersName(String shippersName) {
+	public void setShippersName() {
 		print("Please enter senders name:");
 		this.shippersName = inputShipper.nextLine();
 	}
 
-	public void setShippersAddress(String shippersAddress) {
+	public void setShippersAddress() {
 		print("Please enter senders address:");
 		this.shippersAddress = inputShipper.nextLine();
 	}
 
-	public void setShippersCity(String shippersCity) {
+	public void setShippersCity() {
 		print("Please enter senders city:");
 		this.shippersCity = inputShipper.nextLine();
 	}
 
-	public void setShippersCountry(String shippersCountry) {
+	public void setShippersCountry() {
 		print("Please enter senders country:");
 		this.shippersCountry = inputShipper.nextLine();
 	}
 
-	public void setShippersEntity(String shippersEntity) {
+	public void setShippersEntity() {
 		print("Please enter contact persons name & surname:");
 		this.shippersEntity = inputShipper.nextLine();
 	}
 
-	public void setShippersPhoNum(String shippersPhoNum) {
+	public void setShippersPhoNum() {
 		print("Please enter senders phone number:");
 		this.shippersPhoNum = inputShipper.nextLine();
 	}
-	// SCENNER IS OPEN!!!
+
 	public void displayShippersInfo() {
 		print(" *** SENDERS DETAILS: " + "\n" 
 				+ "COMPANY NAME: " + this.shippersName + "\n" 

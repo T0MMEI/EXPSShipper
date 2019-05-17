@@ -9,7 +9,7 @@ public class Consignment {
 
 		References newAWB = new References();
 		References date = new References();
-		// References service = new References(); // FAILD - java scanner no such element exeption error
+		References service = new References();
 		Shipper sender = new Shipper();
 		Collection loading = new Collection();
 		Receiver receiver = new Receiver();
@@ -18,69 +18,60 @@ public class Consignment {
 		Package cargo = new Package();
 		DBoperations dbSaver = new DBoperations();
 		
-		
-		// Creating a consigment
+		// Creating a con.
 		System.out.println("PLEASE ENTER SENDERS DETAILS");
-		sender.setShippersName(null);
-		sender.setShippersAddress(null);
-		sender.setShippersCity(null);
-		sender.setShippersCountry(null);
-		sender.setShippersEntity(null);
-		sender.setShippersPhoNum(null);
+		sender.setShippersName();
+		sender.setShippersAddress();
+		sender.setShippersCity();
+		sender.setShippersCountry();
+		sender.setShippersEntity();
+		sender.setShippersPhoNum();
 		
 		Scanner inputConsignment = new Scanner(System.in);
 		System.out.println("Would You like to add collection details? (Yes/No)");
 		String choiceForCollection = inputConsignment.nextLine();
+
 		if (choiceForCollection.equalsIgnoreCase("Yes")) {
 
 			System.out.println("PLEASE ENTER COLLECTION DETAILS");
-			loading.setCollectionName(null);
-			loading.setCollectionAddress(null);
-			loading.setCollectionCity(null);
-			loading.setCollectionCountry(null);
-			loading.setCollectionEntity(null);
-			loading.setCollectionPhoNum(null);
+			loading.setCollectionName();
+			loading.setCollectionAddress();
+			loading.setCollectionCity();
+			loading.setCollectionCountry();
+			loading.setCollectionEntity();
+			loading.setCollectionPhoNum();
 		} else if (choiceForCollection.equalsIgnoreCase("No")) {
 			// Catch answer & proceed
-		} //else throw new InputMismatchException("INPUT ERROR: Please enter Yes or No");
+		} else throw new InputMismatchException("INPUT ERROR: Please enter Yes or No");
 
 		System.out.println("PLEASE ENTER RECEIVERS DETAILS");
-		receiver.setReceiversName(null);
-		receiver.setReceiversAddress(null);
-		receiver.setReceiversCity(null);
-		receiver.setReceiversCountry(null);
-		receiver.setReceiversEntity(null);
-		receiver.setReceiversPhoNum(null);
+		receiver.setReceiversName();
+		receiver.setReceiversAddress();
+		receiver.setReceiversCity();
+		receiver.setReceiversCountry();
+		receiver.setReceiversEntity();
+		receiver.setReceiversPhoNum();
 
 		System.out.println("Delivery to Different Location? (Yes/No)");
 		String choiceForDelivery = inputConsignment.nextLine();
 		if (choiceForDelivery.equalsIgnoreCase("Yes")) {
 
 			System.out.println("PLEASE ENTER DELIVERY DETAILS");
-			delivery.setDeliveryName(null);
-			delivery.setDeliveryAddress(null);
-			delivery.setDeliveryCity(null);
-			delivery.setDeliveryCountry(null);
-			delivery.setDeliveryEntity(null);
-			delivery.setDeliveryPhoNum(null);
+			delivery.setDeliveryName();
+			delivery.setDeliveryAddress();
+			delivery.setDeliveryCity();
+			delivery.setDeliveryCountry();
+			delivery.setDeliveryEntity();
+			delivery.setDeliveryPhoNum();
 		} else if (choiceForDelivery.equalsIgnoreCase("No")) {
 			// Catch answer & proceed
-		} // else throw new InputMismatchException("INPUT ERROR: Please enter Yes or No");
+		} else throw new InputMismatchException("INPUT ERROR: Please enter Yes or No");
 		
 		newAWB.awbGenerator();
-		
-		sender.displayShippersInfo();
-		loading.displayCollectionInfo();
-		receiver.displayReceiversInfo();
-		delivery.displayDeliveryInfo();
-		ref.setCustRef(null);
+		ref.setCustRef();
 		cargo.getPackageData();
-		//service.setService(null); // FAILD - java scanner no such element exeption error
+		service.setService();
 		date.docDate();
-		dbSaver.insertToDatabase(newAWB.awbGenerator(), date.docDate(), ref.getCustRef(), receiver.getReceiversName(), cargo.getPackQnty(), cargo.getWeight(), receiver.getReceiversCountry());
-		
+		dbSaver.insertToDatabase(newAWB.awbGenerator(), date.docDate(), ref.getCustRef(), receiver.getReceiversName(), cargo.shipmentPackages(), cargo.shipmentWeight(), receiver.getReceiversCountry());
 	}
-
-	
-
 }
